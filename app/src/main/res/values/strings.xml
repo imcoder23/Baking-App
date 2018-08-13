@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Baking App</string>
+    <string name="image_thumbnail">Image Thumbnail</string>
+    <string name="name">Name</string>
+    <string name="textview">Textview</string>
+    <string name="choose">Choose a recipe</string>
+    <string name="cheesecake">Cheesecake</string>
+    <string name="appwidget_text">appwidget_text</string>
+    <string name="widget_text">1.hello</string>
+    <string name="Connection">Check Network/Internet Connection</string>
+    <string name="reload">reload</string>
+    <string name="title">Title</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="measure">Measure</string>
+    <string name="quantity">Quantity</string>
+    <string name="instruction">Instructions</string>
+    <string name="widget_logo">Widget Logo</string>
+    <string name="Detail_image">Detail Image</string>
+</resources>
