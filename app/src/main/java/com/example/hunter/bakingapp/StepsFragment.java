@@ -1,5 +1,6 @@
 package com.example.hunter.bakingapp;
 
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -27,6 +29,8 @@ import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -34,10 +38,11 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class StepsFragment extends Fragment {
-    @BindView(R.id.exo_player)SimpleExoPlayerView msimpleExoPlayerView;
-    @BindView(R.id.fragment_direction_layout)ScrollView layout;
-    @BindView(R.id.tv_item_detail_ingredients)TextView directions;
-    @BindView(R.id.tv_title)TextView title;
+    @Nullable @BindView(R.id.exo_player)SimpleExoPlayerView msimpleExoPlayerView;
+    @Nullable @BindView(R.id.fragment_direction_layout)ScrollView layout;
+    @Nullable @BindView(R.id.tv_item_detail_ingredients)TextView directions;
+    @Nullable @BindView(R.id.tv_title)TextView title;
+    @Nullable @BindView(R.id.imageView)ImageView Iv_thumbnail;
 
     SimpleExoPlayer exoPlayer;
     private Unbinder unbinder;
@@ -70,7 +75,12 @@ public class StepsFragment extends Fragment {
         String Url = sList.get(stepPosition).getVdoUrl();
         directions.setText(sList.get(stepPosition).getDeScrptn());
         title.setText(sList.get(stepPosition).getShortDescrptn());
-
+        try {
+            Iv_thumbnail.setImageBitmap(BitmapFactory.decodeStream(new URL(sList.get(stepPosition).getThmbUrl()).openConnection().getInputStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.d("no Thumbnail image","no Thumbnail");
+        }
         try {
             BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
             TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));

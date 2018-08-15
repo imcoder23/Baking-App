@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".DetailActivity"/>
-        <activity android:name=".StepsActivity"/>
+        <activity android:name=".StepsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
         
         <provider
             android:authorities="com.example.hunter.bakingapp"

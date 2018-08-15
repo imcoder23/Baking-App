@@ -70,9 +70,9 @@ public class Steps implements Parcelable {
 //        this.vdoUrl = vdoUrl;
 //    }
 
-//    public String getThmbUrl() {
-//        return thmbUrl;
-//    }
+    public String getThmbUrl() {
+        return thmbUrl;
+    }
 
 //    public void setThmbUrl(String thmbUrl) {
 //        this.thmbUrl = thmbUrl;
